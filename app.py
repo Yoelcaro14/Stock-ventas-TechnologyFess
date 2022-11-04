@@ -32,7 +32,6 @@ def data_clean(df):
         marca=[]
         procesador= []
         ram=[]
-        disco=[]
 
         for e in df['DESCRIPCION']:
         #EQUIPO Y MARCA
@@ -83,46 +82,9 @@ def data_clean(df):
         df['MEMORIA']=ram
         
         return df
-# lap=df
 
 # -----------------------------------------------------
 
-def nada():
-# # Importamos datos
-# encabezado=['CODIGO','DESCRIPCION','PRECIO','CATEGORIA','MARCA']
-
-# lap = pd.read_excel('C:/Users/yoe_1/OneDrive/Escritorio/FONDOS/FORMATO STOCK.xlsx',names=encabezado)
-# lap=lap[['CATEGORIA','MARCA','CODIGO','PRECIO','DESCRIPCION']].sort_values('PRECIO').reset_index(drop=True)
-
-# #Limpiamos datos
-# lap['CODIGO']=np.array(lap['CODIGO'].str.strip())
-# lap['DESCRIPCION']=lap['DESCRIPCION'].str.strip()
-
-# lap['CATEGORIA']=lap['CATEGORIA'].str.strip()
-# lap['MARCA']=lap['MARCA'].str.strip()
-
-# ---- SIDEBAR ----
-# st.sidebar.header('Filtros:')
-# code = st.sidebar.multiselect(
-#         'Codigo de producto:',
-#         options= lap['CODIGO'].unique(),
-#         default= None,
-# )
-
-# price = st.sidebar.slider('Precio menor a :',
-#         value= [int(lap['PRECIO'].min()),int(lap['PRECIO'].max())],
-#         step      = 10
-# )
-# st.sidebar.write('Precio:',price)
-
-# rango = lap[lap['PRECIO'].between(price[0],price[1])]
-# st.dataframe(rango)
-
-# lap_selection=lap.query( 'CODIGO ==@code' )
-# st.dataframe(lap_selection)
-
-# # st.dataframe(code)
-        return None
 
 def display_equipo(df):
         equipo_list=['All'] + list(df['EQUIPO'].unique())
@@ -219,40 +181,34 @@ def display_tables(df,equipo,marca,codigo,procesador):
 
         return tabla
 
-# st.header('Display selected TWS')
-# st.dataframe(df_selected_model)
-
-# Para correr en cmd
-# cd C:\Users\yoe_1\OneDrive\Escritorio\FONDOS
-# streamlit run app.py
-
 
 def main():
-        
+
         left_column, right_column = st.columns([1,1],gap="small")
-        with left_column:  st.title('LAPTOS',)
+        with left_column:  st.title('LAPTOS')
         with right_column: 
-                data_file = st.file_uploader("Upload File (format: xlsx)",type=['xlsx'],)
-        if st.button("Process"):
-                if data_file is not None:
+                data_file = st.file_uploader("Upload File (format: xlsx)",type=['xlsx'])
+        # if
+        # st.button("Process")
+                # if data_file is not None:
                         # file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
                         # st.write(file_details)
-                        df = pd.read_excel(data_file,header=None,usecols =[0,1,2])
-                        df = data_clean(df)
-                        # st.dataframe(df)
-        
-                        left_column, right_column = st.columns([1,1],gap="small")
-                        with left_column:
-                                equipo = display_equipo(df)
-                                marca = display_marca(df,equipo)
+        df = pd.read_excel(data_file,header=None,usecols =[0,1,2])
+        df = data_clean(df)
 
-                        with right_column:
-                                
-                                procesador = display_proc(df,equipo,marca)
-                                codigo = display_cod(df,equipo,marca,procesador)  
-                        
-                        
-                        st.dataframe(display_tables(df,equipo,marca,codigo,procesador))
+        st.write('---')
+
+        left_column, right_column = st.columns([1,1],gap="small")
+        with left_column:
+                equipo = display_equipo(df)
+                marca = display_marca(df,equipo)
+
+        with right_column:
+                procesador = display_proc(df,equipo,marca)
+                codigo = display_cod(df,equipo,marca,procesador)  
+        
+        
+        st.dataframe(display_tables(df,equipo,marca,codigo,procesador),width=None, height=None,use_container_width=False)
 
 
  
