@@ -14,8 +14,6 @@ import openpyxl
 
 # -----------------------------------------------------
 
-# df=pd.read_excel('C:/Users/yoe_1/OneDrive/Escritorio/LAPTOPS/STOCK NOVIEMBRE.xlsx',header=None,usecols =[0,1,2])
-
 def data_clean(df):
 
         list_null=[]
@@ -24,7 +22,7 @@ def data_clean(df):
                         list_null.append(i)
         df = df.drop(list_null,axis=0).reset_index(drop=True)#.drop([0],axis=0).reset_index(drop=True)
         df=df.rename(columns={ 0: 'CODIGO', 1: 'DESCRIPCION', 2: 'PRECIO'}).infer_objects()
-        df['PRECIO'][0]
+        # df['PRECIO'][0]
         df['CODIGO'].str.strip()
         df['DESCRIPCION'].str.strip()
 
@@ -80,6 +78,8 @@ def data_clean(df):
         df['MARCA'] = marca
         df['PROCESADOR'] = procesador
         df['MEMORIA']=ram
+
+        df = df[['CODIGO','EQUIPO','MARCA','PROCESADOR','MEMORIA','PRECIO','DESCRIPCION']]
         
         return df
 
@@ -152,7 +152,7 @@ def display_tables(df,equipo,marca,codigo,procesador):
         if (equipo != 'All') & (marca!='All') & (codigo!='All') & (procesador!='All') :
                 tabla = df[(df['EQUIPO']==f'{equipo}') & (df['MARCA']==f'{marca}') & (df['CODIGO']==f'{codigo}') & (df['PROCESADOR']==f'{procesador}') ].drop(['EQUIPO','MARCA','CODIGO','PROCESADOR'],axis=1)    
         if (equipo != 'All') & (marca=='All') & (codigo!='All') & (procesador=='All') :
-                tabla = df[((df['EQUIPO']==f'{equipo}' & df['CODIGO']==f'{codigo}'))].drop(['EQUIPO','CODIGO'],axis=1) 
+                tabla = df[(df['EQUIPO']==f'{equipo}') & (df['CODIGO']==f'{codigo}')].drop(['EQUIPO','CODIGO'],axis=1) 
         if (equipo != 'All') & (marca=='All') & (codigo!='All') & (procesador!='All') :
                 tabla = df[(df['CODIGO']==f'{codigo}') & (df['EQUIPO']==f'{equipo}') &(df['PROCESADOR']==f'{procesador}')].drop(['EQUIPO','CODIGO','PROCESADOR'],axis=1)        
         if (equipo != 'All') & (marca=='All') & (codigo=='All') & (procesador!='All') :
@@ -167,7 +167,8 @@ def display_tables(df,equipo,marca,codigo,procesador):
         if (equipo == 'All') & (marca!='All') & (codigo!='All') & (procesador!='All') :
                 tabla = df[(df['MARCA']==f'{marca}') & (df['CODIGO']==f'{codigo}') & (df['PROCESADOR']==f'{procesador}') ].drop(['MARCA','CODIGO','PROCESADOR'],axis=1)      
         if (equipo == 'All') & (marca!='All') & (codigo=='All') & (procesador!='All') :
-                tabla = df[(df['MARCA']==f'{marca}') & (df['EQUIPO']==f'{equipo}') & (df['PROCESADOR']==f'{procesador}') ].drop(['MARCA','EQUIPO','PROCESADOR'],axis=1)    
+                tabla = df[(df['MARCA']==f'{marca}')  & (df['PROCESADOR']==f'{procesador}') ].drop(['MARCA','PROCESADOR'],axis=1)   
+ 
 
         if (equipo == 'All') & (marca=='All') & (codigo!='All') & (procesador=='All') :
                 tabla = df[(df['CODIGO']==f'{codigo}') ].drop('CODIGO',axis=1)       
@@ -185,35 +186,38 @@ def display_tables(df,equipo,marca,codigo,procesador):
 def main():
 
         left_column, right_column = st.columns([1,1],gap="small")
-        with left_column:  st.title('LAPTOS')
+        with left_column:  st.title('LAPTOPS')
         with right_column: 
                 data_file = st.file_uploader("Upload File (format: xlsx)",type=['xlsx'])
         # if
         # st.button("Process")
-                # if data_file is not None:
-                        # file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
-                        # st.write(file_details)
-        df = pd.read_excel(data_file,header=None,usecols =[0,1,2])
-        df = data_clean(df)
+        if data_file is not None:
+                # file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
+                # st.write(file_details)
+                df = pd.read_excel(data_file,header=None,usecols =[0,1,2])
+                df = data_clean(df)
 
-        st.write('---')
+                st.write('---')
 
-        left_column, right_column = st.columns([1,1],gap="small")
-        with left_column:
-                equipo = display_equipo(df)
-                marca = display_marca(df,equipo)
+                left_column, right_column = st.columns([1,1],gap="small")
+                with left_column:
+                        equipo = display_equipo(df)
+                        marca = display_marca(df,equipo)
 
-        with right_column:
-                procesador = display_proc(df,equipo,marca)
-                codigo = display_cod(df,equipo,marca,procesador)  
-        
-        
-        st.dataframe(display_tables(df,equipo,marca,codigo,procesador),width=None, height=None,use_container_width=False)
+                with right_column:
+                        procesador = display_proc(df,equipo,marca)
+                        codigo = display_cod(df,equipo,marca,procesador)  
+                
+                
+                st.dataframe(display_tables(df,equipo,marca,codigo,procesador),width=None, height=None,use_container_width=False)
 
 
  
 
 if __name__=='__main__':
     main()
+
+
+
 
 
