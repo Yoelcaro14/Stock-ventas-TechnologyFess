@@ -7,6 +7,7 @@ import re
 import openpyxl
 
 
+
 # st.set_page_config(page_title='Sale Dashboars',
 #                    page_icon='',
 #                    layout='wide')
@@ -88,7 +89,7 @@ def data_clean(df):
 
 def display_equipo(df):
         equipo_list=['All'] + list(df['EQUIPO'].unique())
-        equipo_list= st.radio('Seleccionar Equipo:',equipo_list,horizontal=True)
+        equipo_list= st.radio('Seleccionar Equipo :',equipo_list,horizontal=True)
         
         return equipo_list
 
@@ -185,11 +186,15 @@ def display_tables(df,equipo,marca,codigo,procesador):
 
 def main():
 
+        st.set_page_config(page_title='Stock Laptops',
+                           page_icon=':computer::chart:',
+                           layout='wide')
+
         left_column, right_column = st.columns([1,1],gap="small")
-        with left_column:  st.title('LAPTOPS')
+        with left_column:  st.title(':pushpin: LAPTOPS')
         with right_column: 
-                data_file = st.file_uploader("Upload File (format: xlsx)",type=['xlsx'])
-        # if
+                data_file = st.file_uploader("Importar archivo ( formato : xlsx )",type=['xlsx'])
+                
         # st.button("Process")
         if data_file is not None:
                 # file_details = {"Filename":data_file.name,"FileType":data_file.type,"FileSize":data_file.size}
@@ -216,8 +221,3 @@ def main():
 
 if __name__=='__main__':
     main()
-
-
-
-
-
