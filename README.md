@@ -3,7 +3,7 @@
 ## Problemática
 
 El área de ventas de la empresa **[Technology Fes](https://technologyfes.com/)** cada mes recibe una base de datos del stock de productos en su inventario, 
-dicha información suele llegar desordenada y con muchos errores lo cual dificulta la labor de ventas en el dia a dia.
+dicha información suele llegar desordenada y con muchos errores lo cual dificulta la labor de los agentes de ventas al realizar consultas y generar prospectos.
 
 ## Solución propuesta
 
