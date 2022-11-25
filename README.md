@@ -10,8 +10,9 @@ dicha información suele llegar desordenada y con muchos errores lo cual dificul
 En tal sentido se ha desarrollado un único formato, en [Python](https://www.python.org/), que automatiza el proceso de limpieza de datos. El cual consiste en
 detectar y corregir los errores más comunes identificados en los archivos que llegan cada mes al área de ventas.
 
-En primer lugar, se hizo la creación de un entorno virtual que permite la independecia de librerias y recursos que necesarios y mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van a permitir, en funcion a distintos parámetros, visualizar en un tabla resumen el stock de productos disponibles para su venta en el mes. Por último, se ha realizado el deploy de la automatización de dicho proceso con el uso del framework [Streamlit](https://streamlit.io/). 
+En primer lugar, se hizo la creación de un entorno virtual que permite la independecia de librerias y recursos que necesarios y mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van a permitir, en funcion a distintos parámetros, visualizar en un tabla resumen el stock de productos disponibles para su venta en el mes. Por último, se ha realizado el deploy de la automatización de dicho proceso con el uso del framework [Streamlit](https://streamlit.io/).
 
+ ***Muy sencillo***: Para el uso de la app se accede a [Stock de ventas App](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/) y posteriormente se procede a cargar el archivo con errores que suele llegar al área de ventas (para realizar una prueba ***archivo_test***) y por último se hace uso de los filtros según la información que se requiera. **¡ y Listo !**
 
 ## Resultados
 
@@ -21,4 +22,6 @@ En primer lugar, se hizo la creación de un entorno virtual que permite la indep
  * No se requiere la instalación de algun programa específico.
  
   ### **Link del App**:  [Stock de ventas App](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/)
+  
+**¡¡ Muchas Gracias !!**
   
