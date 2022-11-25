@@ -1,4 +1,4 @@
-# </br><p align="center">**CONSULTAS STOCK DE VENTAS**<p> <h1 align="center">![Technology](https://github.com/Yoelcaro14/Consultas_-laptos/blob/main/TFess.PNG)</h1>
+# <p align="center">**CONSULTAS STOCK DE VENTAS**<p> <h1 align="center">![Technology](https://github.com/Yoelcaro14/Stock-ventas-TechnologyFess/blob/main/TechFs.PNG)</h1>
 
 ## Problemática
 
