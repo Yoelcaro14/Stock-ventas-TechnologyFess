@@ -1,6 +1,6 @@
-# Consultas Stock 
+# </br><p align="center">**CONSULTAS STOCK DE VENTAS**<p> <h1 align="center">![Technology](https://github.com/Yoelcaro14/Consultas_-laptos/blob/main/TFess.PNG)</h1>
 
-## Problematica
+## Problemática
 
 El área de ventas de la empresa **[Technology Fes](https://technologyfes.com/)** cada mes recibe una base de datos del stock de productos en su inventario, 
 dicha información suele llegar desordenada y con muchos errores lo cual dificulta la labor de ventas en el dia a dia.
@@ -10,7 +10,7 @@ dicha información suele llegar desordenada y con muchos errores lo cual dificul
 En tal sentido se ha desarrollado un único formato, en [Python](https://www.python.org/), que automatiza el proceso de limpieza de datos. El cual consiste en
 detectar y corregir los errores más comunes identificados en los archivos que llegan cada mes al área de ventas.
 
-Mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van a permitir, en funcion a distintos parámetros, visualizar en un tabla resumen el stock de productos disponibles para la venta en el mes. Por último, se ha realizado el deploy de la automatización de dicho proceso con el uso del framework [Streamlit](https://streamlit.io/). 
+En primer lugar, se hizo la creación de un entorno virtual que permite la independecia de librerias y recursos que necesarios y mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van a permitir, en funcion a distintos parámetros, visualizar en un tabla resumen el stock de productos disponibles para su venta en el mes. Por último, se ha realizado el deploy de la automatización de dicho proceso con el uso del framework [Streamlit](https://streamlit.io/). 
 
 
 ## Resultados
@@ -20,4 +20,5 @@ Mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van
  * Facil acceso desde computadora, celular y/o tablet que cuenten con conexión a internet.
  * No se requiere la instalación de algun programa específico.
  
- **Link del App**:  [Stock de ventas](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/)
+  ### **Link del App**:  [Stock de ventas App](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/)
+  
