@@ -12,7 +12,7 @@ detectar y corregir los errores más comunes identificados en los archivos que l
 
 En primer lugar, se hizo la creación de un entorno virtual que permite la independecia de librerias y recursos que necesarios y mediante procesos básicos de limpieza de datos (ETL) se crearon filtros que van a permitir, en funcion a distintos parámetros, visualizar en un tabla resumen el stock de productos disponibles para su venta en el mes. Por último, se ha realizado el deploy de la automatización de dicho proceso con el uso del framework [Streamlit](https://streamlit.io/).
 
- ***Muy sencillo***: Para el uso de la app se accede a [Stock de ventas App](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/) y posteriormente se procede a cargar el archivo con errores que suele llegar al área de ventas (para realizar una prueba ***archivo_test***) y por último se hace uso de los filtros según la información que se requiera. **¡ y Listo !**
+ ***Muy sencillo***: Para el uso de la app se accede a [Stock de ventas App](https://yoelcaro14-consultas--laptos-app-9tn4pr.streamlit.app/) y posteriormente se procede a cargar el archivo con errores que suele llegar al área de ventas (para realizar una prueba ***archivo_test.xlsx***) y por último se hace uso de los filtros según la información que se requiera. **¡ y Listo !**
 
 ## Resultados
 
